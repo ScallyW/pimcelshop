@@ -110,9 +110,30 @@
   <!-- Популярные товары -->
   <main class="container reveal">
     <h2>Популярное сейчас</h2>
+    <!-- Панель фильтров каталога -->
+    <div class="filters" id="filters">
+      <input type="text" id="searchInput" class="filter-input" placeholder="Поиск по названию...">
+      <select id="brandSelect" class="filter-select" aria-label="Бренд">
+        <option value="">Все бренды</option>
+        <option value="nike">Nike</option>
+        <option value="new-balance">New Balance</option>
+        <option value="adidas">Adidas</option>
+        <option value="coach">Coach</option>
+        <option value="jordan">Jordan</option>
+        <option value="converse">Converse</option>
+      </select>
+      <div class="filter-price">
+        <input type="number" id="priceMin" class="filter-input" placeholder="Цена от" min="0">
+        <input type="number" id="priceMax" class="filter-input" placeholder="Цена до" min="0">
+      </div>
+      <label class="filter-check">
+        <input type="checkbox" id="inStockOnly"> В наличии
+      </label>
+      <button class="btn btn-glass" id="filtersReset">Сбросить</button>
+    </div>
     <div class="products">
       <!-- Шаблон 1: Обычная карточка -->
-      <div class="product" data-type="sneakers">
+      <div class="product" data-type="sneakers" data-brand="nike" data-price="14990" data-stock="true">
         <div class="product-media"><img src="image/force.png" alt="Nike"></div>
         <div class="row">
           <div class="price">14 990 ₽</div>
@@ -130,7 +151,7 @@
       </div>
 
       <!-- Шаблон 2: Хит продаж -->
-      <div class="product product--hit" data-type="sneakers">
+      <!-- <div class="product product--hit" data-type="sneakers" data-brand="new-balance" data-price="12500" data-stock="true">
         <div class="product-badge">Хит продаж</div>
         <div class="product-media"><img src="image/nb302.png" alt="NB"></div>
         <div class="row">
@@ -146,9 +167,9 @@
           </select>
           <button class="btn btn-add add-to-cart">В корзину</button>
         </div>
-      </div>
+      </div> -->
 
-      <div class="product product--hit" data-type="accessories">
+      <div class="product product--hit" data-type="accessories" data-brand="coach" data-price="10500" data-stock="true">
         <div class="product-badge">Хит продаж</div>
         <div class="product-media"><img src="image/coach.png" alt="NB"></div>
         <div class="row">
@@ -162,7 +183,7 @@
       </div>
 
       <!-- Шаблон 3: Предзаказ -->
-      <div class="product" data-type="tshirts">
+      <!-- <div class="product" data-type="tshirts" data-brand="adidas" data-price="18900" data-stock="false">
         <div class="product-media"><img src="image/force.png" alt="Adidas"></div>
         <div class="row">
           <div class="price">18 900 ₽</div>
@@ -172,9 +193,9 @@
         <div class="product-actions">
           <button class="btn btn-add add-to-cart">В корзину</button>
         </div>
-      </div>
+      </div> -->
 
-      <div class="product" data-type="sneakers">
+      <div class="product" data-type="sneakers" data-brand="new-balance" data-price="9999" data-stock="false">
         <div class="product-media"><img src="image/2002r.png" alt="2002R"></div>
         <div class="row">
           <div class="price">9 999 ₽</div>
@@ -192,7 +213,7 @@
       </div>
 
       <!-- Шаблон 4: Скидка -->
-      <div class="product product--sale" data-type="sneakers">
+      <div class="product product--sale" data-type="sneakers" data-brand="jordan" data-price="21000" data-stock="true">
         <div class="product-badge">-30%</div>
         <div class="product-media"><img src="image/nb302.png" alt="Jordan"></div>
         <div class="row">
@@ -211,7 +232,7 @@
       </div>
 
       <!-- Шаблон 5: Последняя пара -->
-      <div class="product" data-type="sneakers">
+      <div class="product" data-type="sneakers" data-brand="converse" data-price="8500" data-stock="true">
         <div class="product-media"><img src="image/force.png" alt="Converse"></div>
         <div class="row">
           <div class="price">8 500 ₽</div>
@@ -229,7 +250,7 @@
       </div>
 
       <!-- Шаблон 6: Новинка -->
-      <div class="product product--new" data-type="sneakers">
+      <div class="product product--new" data-type="sneakers" data-brand="new-balance" data-price="45000" data-stock="false">
         <div class="product-badge">Новинка</div>
         <div class="product-media"><img src="image/nb302.png" alt="Yeezy"></div>
         <div class="row">
@@ -248,7 +269,38 @@
       </div>
     </div>
 
+    <div class="catalog-cta">
+      <a href="catalog.html" class="btn btn-glass">Весь каталог</a>
+    </div>
+
   </main>
+
+  <!-- Отзывы -->
+  <section class="reviews" id="reviews">
+    <h2>Отзывы</h2>
+    <div class="reviews-track" id="reviewsTrack">
+      <div class="review">
+        <div class="r-name">Егор</div>
+        <div class="r-text">Быстрая доставка, кроссы оригинал. Буду заказывать ещё.</div>
+        <div class="r-stars" data-stars="5"></div>
+      </div>
+      <div class="review">
+        <div class="r-name">Марина</div>
+        <div class="r-text">Красивый сайт, удобно выбирать размер. Поддержка помогла с обменом.</div>
+        <div class="r-stars" data-stars="4"></div>
+      </div>
+      <div class="review">
+        <div class="r-name">Игорь</div>
+        <div class="r-text">Цена/качество отличные, рекомендую друзьям.</div>
+        <div class="r-stars" data-stars="5"></div>
+      </div>
+      <div class="review">
+        <div class="r-name">Марат</div>
+        <div class="r-text">Хит сезона попал в распродажу — очень доволен покупкой!</div>
+        <div class="r-stars" data-stars="5"></div>
+      </div>
+    </div>
+  </section>
 
   <a class="fab" href="https://t.me/behaiv0ur" target="_blank" rel="noopener" aria-label="Telegram">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -278,6 +330,87 @@
           });
         });
       });
+    })();
+
+    // Фильтры и поиск
+    (function(){
+      const products = Array.from(document.querySelectorAll('.products .product'));
+      const q = document.getElementById('searchInput');
+      const brand = document.getElementById('brandSelect');
+      const min = document.getElementById('priceMin');
+      const max = document.getElementById('priceMax');
+      const stock = document.getElementById('inStockOnly');
+      const reset = document.getElementById('filtersReset');
+
+      function apply(){
+        const text = (q.value||'').trim().toLowerCase();
+        const b = brand.value;
+        const vmin = parseFloat(min.value);
+        const vmax = parseFloat(max.value);
+        const hasMin = !isNaN(vmin);
+        const hasMax = !isNaN(vmax);
+        products.forEach(card=>{
+          const name = card.querySelector('.pname')?.textContent.toLowerCase()||'';
+          const cb = card.getAttribute('data-brand')||'';
+          const price = parseInt(card.getAttribute('data-price')||'0',10);
+          const inStock = (card.getAttribute('data-stock')||'false') === 'true';
+          let ok = true;
+          if (text && !name.includes(text)) ok=false;
+          if (b && cb!==b) ok=false;
+          if (hasMin && price < vmin) ok=false;
+          if (hasMax && price > vmax) ok=false;
+          if (stock.checked && !inStock) ok=false;
+          card.style.display = ok ? '' : 'none';
+        });
+      }
+      [q,brand,min,max,stock].forEach(el=>el && el.addEventListener('input',apply));
+      reset?.addEventListener('click',()=>{ q.value=''; brand.value=''; min.value=''; max.value=''; stock.checked=false; apply(); });
+      apply();
+    })();
+
+    // Бесшовная автопрокрутка отзывов (маркиза)
+    (function(){
+      const track = document.getElementById('reviewsTrack');
+      const container = document.getElementById('reviews');
+      if (!track) return;
+      // Звёзды
+      track.querySelectorAll('.r-stars').forEach(box=>{
+        const n = Math.max(0, Math.min(5, parseInt(box.getAttribute('data-stars')||'0',10)));
+        for (let i=1;i<=5;i++){
+          const s = document.createElement('span');
+          s.className = 'star'+(i<=n?'':' dim');
+          box.appendChild(s);
+        }
+      });
+      // Гарантируем достаточную длину ленты
+      const base = Array.from(track.children);
+      function ensureLength(){
+        const needed = (container?.offsetWidth || track.parentElement.offsetWidth) * 2;
+        while (track.scrollWidth < needed){
+          base.forEach(el=> track.appendChild(el.cloneNode(true)));
+        }
+      }
+      ensureLength();
+      let x = 0; const speed = 0.6; const gap = 16;
+      function step(){
+        x -= speed;
+        // когда первый элемент полностью ушёл влево — переносим его в конец и корректируем позицию
+        let first = track.children[0];
+        if (first){
+          const rectFirst = first.getBoundingClientRect();
+          const rectContainer = (container||track.parentElement).getBoundingClientRect();
+          if (rectFirst.right < rectContainer.left){
+            const w = rectFirst.width + gap;
+            track.appendChild(first);
+            x += w; // сдвигаем трек на ширину ушедшего элемента
+          }
+        }
+        track.style.transform = `translateX(${x}px)`;
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      // на ресайз пересобрать длину
+      window.addEventListener('resize', ensureLength);
     })();
 
     // Мини-корзина: логика

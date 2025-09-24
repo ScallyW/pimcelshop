@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Каталог — Pimcel Shop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="catalog">
+  <div class="bg-grid"></div>
+  <div class="catalog-overlay" aria-hidden="true"></div>
+  <header class="header">
+    <div class="logo"><span class="mark">P</span> Pimcel Shop</div>
+    <div class="search">
+      <input type="text" placeholder="Найти одежду или бренд..." id="searchInput">
+    </div>
+    <div class="header-right">
+      <a href="index.html">Главная</a>
+      <a href="#" class="cart-button" id="cartButton"><span class="cart-icon">🛒</span><span class="cart-badge" id="cartCount">0</span></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Каталог</h2>
+    <div class="filters" id="filters">
+      <select id="brandSelect" class="filter-select" aria-label="Бренд">
+        <option value="">Все бренды</option>
+        <option value="nike">Nike</option>
+        <option value="new-balance">New Balance</option>
+        <option value="adidas">Adidas</option>
+        <option value="coach">Coach</option>
+        <option value="jordan">Jordan</option>
+        <option value="converse">Converse</option>
+      </select>
+      <div class="filter-price">
+        <input type="number" id="priceMin" class="filter-input" placeholder="Цена от" min="0">
+        <input type="number" id="priceMax" class="filter-input" placeholder="Цена до" min="0">
+      </div>
+      <label class="filter-check">
+        <input type="checkbox" id="inStockOnly"> В наличии
+      </label>
+      <button class="btn btn-glass" id="filtersReset">Сбросить</button>
+    </div>
+
+    <div class="products" id="catalogProducts">
+      <!-- Товары берём с главной структуры; для примера дублируем несколько -->
+      <div class="product" data-type="sneakers" data-brand="nike" data-price="14990" data-stock="true">
+        <div class="product-media"><img src="image/force.png" alt="Nike"></div>
+        <div class="row"><div class="price">14 990 ₽</div><div class="meta"><span class="badge badge--stock"><span class="dot"></span>В наличии</span></div></div>
+        <div class="pname">Nike Air Force 1 '07</div>
+        <div class="product-actions">
+          <select class="size-select"><option value="">Размер</option><option>36</option><option>37</option><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option></select>
+          <button class="btn btn-add add-to-cart">В корзину</button>
+        </div>
+      </div>
+      <div class="product" data-type="sneakers" data-brand="new-balance" data-price="9999" data-stock="false">
+        <div class="product-media"><img src="image/2002r.png" alt="2002R"></div>
+        <div class="row"><div class="price">9 999 ₽</div><div class="meta"><span class="badge badge--preorder"><span class="dot"></span>Предзаказ</span></div></div>
+        <div class="pname">New Balance NB 2002R</div>
+        <div class="product-actions">
+          <select class="size-select"><option value="">Размер</option><option>36</option><option>37</option><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option></select>
+          <button class="btn btn-add add-to-cart">В корзину</button>
+        </div>
+      </div>
+      <div class="product product--sale" data-type="sneakers" data-brand="jordan" data-price="21000" data-stock="true">
+        <div class="product-badge">-30%</div>
+        <div class="product-media"><img src="image/nb302.png" alt="Jordan"></div>
+        <div class="row"><div class="price">21 000 ₽ <span class="price-old">30 000 ₽</span></div><div class="meta"><span class="badge badge--stock"><span class="dot"></span>В наличии</span></div></div>
+        <div class="pname">Air Jordan 1 Retro High</div>
+        <div class="product-actions">
+          <select class="size-select"><option value="">Размер</option><option>36</option><option>37</option><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option></select>
+          <button class="btn btn-add add-to-cart">В корзину</button>
+        </div>
+      </div>
+      <!-- Можно расширить список далее -->
+    </div>
+  </main>
+
+  <script>
+    // Фильтры каталога
+    (function(){
+      const products = Array.from(document.querySelectorAll('.products .product'));
+      const brand = document.getElementById('brandSelect');
+      const min = document.getElementById('priceMin');
+      const max = document.getElementById('priceMax');
+      const stock = document.getElementById('inStockOnly');
+      const reset = document.getElementById('filtersReset');
+      function apply(){
+        const b = brand.value;
+        const vmin = parseInt(min.value||'0',10);
+        const vmax = parseInt(max.value||'0',10);
+        products.forEach(card=>{
+          const cb = card.getAttribute('data-brand')||'';
+          const price = parseInt(card.getAttribute('data-price')||'0',10);
+          const inStock = (card.getAttribute('data-stock')||'false') === 'true';
+          let ok = true;
+          if (b && cb!==b) ok=false;
+          if (min.value && price < vmin) ok=false;
+          if (max.value && price > vmax) ok=false;
+          if (stock.checked && !inStock) ok=false;
+          card.style.display = ok ? '' : 'none';
+        });
+      }
+      [brand,min,max,stock].forEach(el=>el && el.addEventListener('input',apply));
+      reset?.addEventListener('click',()=>{ brand.value=''; min.value=''; max.value=''; stock.checked=false; apply(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>
