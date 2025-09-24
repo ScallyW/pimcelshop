@@ -16,10 +16,25 @@
     </div>
     <div class="header-right">
       <a href="catalog.html">Каталог</a>
-      <a href="#">Корзина</a>
+      <button class="cart-button" id="cartButton" aria-label="Корзина">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
       <a href="#">Профиль</a>
-    </div>
+  </div>
   </header>
+  <!-- Мини-корзина -->
+  <div class="mini-cart" id="miniCart" hidden>
+    <div class="mini-cart-head">
+      <div class="mini-title">Корзина</div>
+      <button class="mini-close" id="miniCartClose">×</button>
+    </div>
+    <div class="mini-cart-list" id="miniCartList"></div>
+    <div class="mini-cart-footer">
+      <div class="mini-total"><span>Итого:</span><strong id="miniCartTotal">0 ₽</strong></div>
+      <a href="#" class="btn btn-peach" id="miniCheckout">Оформить</a>
+    </div>
+  </div>
 
   <!-- Hero блок -->
   <section class="hero">
@@ -60,7 +75,7 @@
       </div>
       <div class="hero-art">
         <div class="hero-image-container">
-          <img src="image/banner.jpg" alt="Коллекция" class="hero-image">
+          <img src="image/banner.jpg" src="https://t.me/vozbuzden1e" class="hero-image">
           <div class="image-glow"></div>
         </div>
         <div class="floating-elements">
@@ -68,25 +83,25 @@
           <div class="float-item float-2"></div>
           <div class="float-item float-3"></div>
         </div>
-      </div>
+    </div>
     </div>
   </section>
 
   <!-- Категории -->
   <section class="categories">
-    <div class="cat cat--sneakers">
+    <div class="cat cat--sneakers" data-filter="sneakers">
       <div class="cat-dot"></div>
       <span class="label">Кроссовки</span>
     </div>
-    <div class="cat cat--tshirts">
+    <div class="cat cat--tshirts" data-filter="tshirts">
       <div class="cat-dot"></div>
       <span class="label">Футболки</span>
     </div>
-    <div class="cat cat--jackets">
+    <div class="cat cat--jackets" data-filter="jackets">
       <div class="cat-dot"></div>
       <span class="label">Куртки</span>
     </div>
-    <div class="cat cat--accessories">
+    <div class="cat cat--accessories" data-filter="accessories">
       <div class="cat-dot"></div>
       <span class="label">Аксессуары</span>
     </div>
@@ -97,17 +112,25 @@
     <h2>Популярное сейчас</h2>
     <div class="products">
       <!-- Шаблон 1: Обычная карточка -->
-      <div class="product">
+      <div class="product" data-type="sneakers">
         <div class="product-media"><img src="image/force.png" alt="Nike"></div>
         <div class="row">
           <div class="price">14 990 ₽</div>
           <div class="meta"><span class="badge badge--stock"><span class="dot"></span>В наличии</span></div>
         </div>
         <div class="pname">Nike Air Force 1 '07</div>
+        <div class="product-actions">
+          <select class="size-select" aria-label="Размер">
+            <option value="">Размер</option>
+            <option>36</option><option>37</option><option>38</option><option>39</option>
+            <option>40</option><option>41</option><option>42</option><option>43</option>
+          </select>
+          <button class="btn btn-add add-to-cart">В корзину</button>
+        </div>
       </div>
 
       <!-- Шаблон 2: Хит продаж -->
-      <div class="product product--hit">
+      <div class="product product--hit" data-type="sneakers">
         <div class="product-badge">Хит продаж</div>
         <div class="product-media"><img src="image/nb302.png" alt="NB"></div>
         <div class="row">
@@ -115,9 +138,17 @@
           <div class="meta"><span class="badge badge--stock"><span class="dot"></span>В наличии</span></div>
         </div>
         <div class="pname">New Balance NB 302 Low Top</div>
+        <div class="product-actions">
+          <select class="size-select" aria-label="Размер">
+            <option value="">Размер</option>
+            <option>36</option><option>37</option><option>38</option><option>39</option>
+            <option>40</option><option>41</option><option>42</option><option>43</option>
+          </select>
+          <button class="btn btn-add add-to-cart">В корзину</button>
+        </div>
       </div>
 
-      <div class="product product--hit">
+      <div class="product product--hit" data-type="accessories">
         <div class="product-badge">Хит продаж</div>
         <div class="product-media"><img src="image/coach.png" alt="NB"></div>
         <div class="row">
@@ -125,29 +156,43 @@
           <div class="meta"><span class="badge badge--stock"><span class="dot"></span>В наличии</span></div>
         </div>
         <div class="pname">Coach Nolita</div>
+        <div class="product-actions">
+          <button class="btn btn-add add-to-cart">В корзину</button>
+        </div>
       </div>
 
       <!-- Шаблон 3: Предзаказ -->
-      <div class="product">
+      <div class="product" data-type="tshirts">
         <div class="product-media"><img src="image/force.png" alt="Adidas"></div>
         <div class="row">
           <div class="price">18 900 ₽</div>
           <div class="meta"><span class="badge badge--preorder"><span class="dot"></span>Предзаказ</span></div>
         </div>
         <div class="pname">Adidas Ultraboost 22</div>
+        <div class="product-actions">
+          <button class="btn btn-add add-to-cart">В корзину</button>
+        </div>
       </div>
 
-      <div class="product">
+      <div class="product" data-type="sneakers">
         <div class="product-media"><img src="image/2002r.png" alt="2002R"></div>
         <div class="row">
           <div class="price">9 999 ₽</div>
           <div class="meta"><span class="badge badge--preorder"><span class="dot"></span>Предзаказ</span></div>
         </div>
         <div class="pname">New Balance NB 2002R</div>
+        <div class="product-actions">
+          <select class="size-select" aria-label="Размер">
+            <option value="">Размер</option>
+            <option>36</option><option>37</option><option>38</option><option>39</option>
+            <option>40</option><option>41</option><option>42</option><option>43</option>
+          </select>
+          <button class="btn btn-add add-to-cart">В корзину</button>
+        </div>
       </div>
 
       <!-- Шаблон 4: Скидка -->
-      <div class="product product--sale">
+      <div class="product product--sale" data-type="sneakers">
         <div class="product-badge">-30%</div>
         <div class="product-media"><img src="image/nb302.png" alt="Jordan"></div>
         <div class="row">
@@ -155,20 +200,36 @@
           <div class="meta"><span class="badge badge--stock"><span class="dot"></span>В наличии</span></div>
         </div>
         <div class="pname">Air Jordan 1 Retro High</div>
+        <div class="product-actions">
+          <select class="size-select" aria-label="Размер">
+            <option value="">Размер</option>
+            <option>36</option><option>37</option><option>38</option><option>39</option>
+            <option>40</option><option>41</option><option>42</option><option>43</option>
+          </select>
+          <button class="btn btn-add add-to-cart">В корзину</button>
+        </div>
       </div>
 
       <!-- Шаблон 5: Последняя пара -->
-      <div class="product">
+      <div class="product" data-type="sneakers">
         <div class="product-media"><img src="image/force.png" alt="Converse"></div>
         <div class="row">
           <div class="price">8 500 ₽</div>
           <div class="meta"><span class="badge badge--last"><span class="dot"></span>Последняя пара</span></div>
         </div>
         <div class="pname">Converse Chuck Taylor All Star</div>
+        <div class="product-actions">
+          <select class="size-select" aria-label="Размер">
+            <option value="">Размер</option>
+            <option>36</option><option>37</option><option>38</option><option>39</option>
+            <option>40</option><option>41</option><option>42</option><option>43</option>
+          </select>
+          <button class="btn btn-add add-to-cart">В корзину</button>
+        </div>
       </div>
 
       <!-- Шаблон 6: Новинка -->
-      <div class="product product--new">
+      <div class="product product--new" data-type="sneakers">
         <div class="product-badge">Новинка</div>
         <div class="product-media"><img src="image/nb302.png" alt="Yeezy"></div>
         <div class="row">
@@ -176,12 +237,24 @@
           <div class="meta"><span class="badge badge--eta"><span class="dot"></span>7 дней</span></div>
         </div>
         <div class="pname">Yeezy Boost 350 V2</div>
+        <div class="product-actions">
+          <select class="size-select" aria-label="Размер">
+            <option value="">Размер</option>
+            <option>36</option><option>37</option><option>38</option><option>39</option>
+            <option>40</option><option>41</option><option>42</option><option>43</option>
+          </select>
+          <button class="btn btn-add add-to-cart">В корзину</button>
+        </div>
       </div>
     </div>
 
   </main>
 
-  <a class="fab" href="#">?</a>
+  <a class="fab" href="https://t.me/behaiv0ur" target="_blank" rel="noopener" aria-label="Telegram">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 3L2 11l6.5 2.5L18.5 7 10.5 16.5V21l3.6-3.6L19 19l3-16z" fill="#0e141f"/>
+    </svg>
+  </a>
 
   <script>
     // reveal on load/scroll
@@ -191,6 +264,96 @@
       },{threshold:0.15});
       document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     });
+    // Категории: фильтр
+    (function(){
+      const products = Array.from(document.querySelectorAll('.products .product'));
+      document.querySelectorAll('.categories .cat').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          const f = btn.getAttribute('data-filter');
+          document.querySelectorAll('.categories .cat').forEach(c=>c.classList.remove('active'));
+          btn.classList.add('active');
+          products.forEach(p=>{
+            const t = p.getAttribute('data-type');
+            p.style.display = (!f || t===f) ? '' : 'none';
+          });
+        });
+      });
+    })();
+
+    // Мини-корзина: логика
+    (function(){
+      const cart = [];
+      const cartButton = document.getElementById('cartButton');
+      const miniCart = document.getElementById('miniCart');
+      const miniClose = document.getElementById('miniCartClose');
+      const miniList = document.getElementById('miniCartList');
+      const miniTotal = document.getElementById('miniCartTotal');
+      const cartCount = document.getElementById('cartCount');
+
+      function parsePrice(text){
+        return parseInt((text||'').replace(/[^0-9]/g,'')||'0',10);
+      }
+      function formatPrice(n){
+        return n.toLocaleString('ru-RU')+" ₽";
+      }
+      function openCart(){ miniCart.classList.add('show'); }
+      function closeCart(){ miniCart.classList.remove('show'); }
+      function toggleCart(){ miniCart.classList.toggle('show'); }
+
+      function render(){
+        miniList.innerHTML = '';
+        let total = 0;
+        cart.forEach((item,idx)=>{
+          total += item.price;
+          const el = document.createElement('div');
+          el.className = 'mini-cart-item';
+          el.innerHTML = `
+            <img src="${item.img}" alt="${item.name}">
+            <div class="mci-info">
+              <div class="mci-name">${item.name}</div>
+              <div class="mci-meta">${item.color?item.color+' · ':''}${item.size?('Размер '+item.size):''}</div>
+              <div class="mci-price">${formatPrice(item.price)} ${item.old?('<span class="mci-old">'+formatPrice(item.old)+'</span>'):''}</div>
+            </div>
+            <button class="mci-remove" data-idx="${idx}">×</button>
+          `;
+          miniList.appendChild(el);
+        });
+        miniTotal.textContent = formatPrice(total);
+        cartCount.textContent = cart.length;
+        miniList.querySelectorAll('.mci-remove').forEach(btn=>{
+          btn.addEventListener('click',()=>{
+            const i = parseInt(btn.getAttribute('data-idx'),10);
+            cart.splice(i,1); render();
+          });
+        });
+      }
+      document.querySelectorAll('.add-to-cart').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          const card = btn.closest('.product');
+          const name = card.querySelector('.pname')?.textContent.trim();
+          const img = card.querySelector('.product-media img')?.getAttribute('src');
+          const priceText = card.querySelector('.price')?.textContent;
+          const oldEl = card.querySelector('.price .price-old');
+          const old = oldEl ? parsePrice(oldEl.textContent) : 0;
+          const price = parsePrice(priceText);
+          const sel = card.querySelector('.size-select');
+          const size = sel ? sel.value : '';
+          if (sel && !size){ sel.classList.add('invalid'); setTimeout(()=>sel.classList.remove('invalid'),600); return; }
+          cart.push({name,img,price,old,size});
+          render();
+          openCart();
+        });
+      });
+      cartButton?.addEventListener('click',toggleCart);
+      miniClose?.addEventListener('click',closeCart);
+      document.addEventListener('keydown',(e)=>{ if (e.key==='Escape') closeCart(); });
+      document.addEventListener('click',(e)=>{
+        if (!miniCart.contains(e.target) && !cartButton.contains(e.target)){
+          // по клику вне: закрывать
+          if (miniCart.classList.contains('show')) closeCart();
+        }
+      });
+    })();
   </script>
 </body>
 </html>
