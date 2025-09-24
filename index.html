@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Premium Clothing Store</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <!-- Шапка -->
+  <header class="header">
+    <div class="logo"><span class="mark">P</span> Pimcel Shop</div>
+    <div class="search">
+      <input type="text" placeholder="Найти одежду или бренд...">
+    </div>
+    <div class="header-right">
+      <a href="catalog.html">Каталог</a>
+      <a href="#">Корзина</a>
+      <a href="#">Профиль</a>
+    </div>
+  </header>
+
+  <!-- Hero блок -->
+  <section class="hero">
+    <div class="hero-card">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="badge-text">Новая коллекция</span>
+          <div class="badge-glow"></div>
+        </div>
+        <h1 class="hero-title">
+          <span class="title-line">Весна–Лето</span>
+          <span class="title-line title-accent">2025</span>
+        </h1>
+        <p class="hero-sub">Одежда и обувь премиум-качества от мировых брендов. Эксклюзивные модели, ограниченные серии.</p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Моделей</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Брендов</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Поддержка</span>
+          </div>
+        </div>
+        <div class="hero-cta reveal">
+          <a href="catalog.html" class="btn btn-peach btn-glow">
+            <span class="btn-text">Смотреть каталог</span>
+            <div class="btn-shine"></div>
+          </a>
+          <a href="#" class="btn btn-glass btn-glass-enhanced">
+            <span class="btn-text">Подробнее</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-image-container">
+          <img src="image/banner.jpg" alt="Коллекция" class="hero-image">
+          <div class="image-glow"></div>
+        </div>
+        <div class="floating-elements">
+          <div class="float-item float-1"></div>
+          <div class="float-item float-2"></div>
+          <div class="float-item float-3"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Категории -->
+  <section class="categories">
+    <div class="cat cat--sneakers">
+      <div class="cat-dot"></div>
+      <span class="label">Кроссовки</span>
+    </div>
+    <div class="cat cat--tshirts">
+      <div class="cat-dot"></div>
+      <span class="label">Футболки</span>
+    </div>
+    <div class="cat cat--jackets">
+      <div class="cat-dot"></div>
+      <span class="label">Куртки</span>
+    </div>
+    <div class="cat cat--accessories">
+      <div class="cat-dot"></div>
+      <span class="label">Аксессуары</span>
+    </div>
+  </section>
+
+  <!-- Популярные товары -->
+  <main class="container reveal">
+    <h2>Популярное сейчас</h2>
+    <div class="products">
+      <!-- Шаблон 1: Обычная карточка -->
+      <div class="product">
+        <div class="product-media"><img src="image/force.png" alt="Nike"></div>
+        <div class="row">
+          <div class="price">14 990 ₽</div>
+          <div class="meta"><span class="badge badge--stock"><span class="dot"></span>В наличии</span></div>
+        </div>
+        <div class="pname">Nike Air Force 1 '07</div>
+      </div>
+
+      <!-- Шаблон 2: Хит продаж -->
+      <div class="product product--hit">
+        <div class="product-badge">Хит продаж</div>
+        <div class="product-media"><img src="image/nb302.png" alt="NB"></div>
+        <div class="row">
+          <div class="price">12 500 ₽</div>
+          <div class="meta"><span class="badge badge--stock"><span class="dot"></span>В наличии</span></div>
+        </div>
+        <div class="pname">New Balance NB 302 Low Top</div>
+      </div>
+
+      <div class="product product--hit">
+        <div class="product-badge">Хит продаж</div>
+        <div class="product-media"><img src="image/coach.png" alt="NB"></div>
+        <div class="row">
+          <div class="price">10 500 ₽</div>
+          <div class="meta"><span class="badge badge--stock"><span class="dot"></span>В наличии</span></div>
+        </div>
+        <div class="pname">Coach Nolita</div>
+      </div>
+
+      <!-- Шаблон 3: Предзаказ -->
+      <div class="product">
+        <div class="product-media"><img src="image/force.png" alt="Adidas"></div>
+        <div class="row">
+          <div class="price">18 900 ₽</div>
+          <div class="meta"><span class="badge badge--preorder"><span class="dot"></span>Предзаказ</span></div>
+        </div>
+        <div class="pname">Adidas Ultraboost 22</div>
+      </div>
+
+      <div class="product">
+        <div class="product-media"><img src="image/2002r.png" alt="2002R"></div>
+        <div class="row">
+          <div class="price">9 999 ₽</div>
+          <div class="meta"><span class="badge badge--preorder"><span class="dot"></span>Предзаказ</span></div>
+        </div>
+        <div class="pname">New Balance NB 2002R</div>
+      </div>
+
+      <!-- Шаблон 4: Скидка -->
+      <div class="product product--sale">
+        <div class="product-badge">-30%</div>
+        <div class="product-media"><img src="image/nb302.png" alt="Jordan"></div>
+        <div class="row">
+          <div class="price">21 000 ₽ <span class="price-old">30 000 ₽</span></div>
+          <div class="meta"><span class="badge badge--stock"><span class="dot"></span>В наличии</span></div>
+        </div>
+        <div class="pname">Air Jordan 1 Retro High</div>
+      </div>
+
+      <!-- Шаблон 5: Последняя пара -->
+      <div class="product">
+        <div class="product-media"><img src="image/force.png" alt="Converse"></div>
+        <div class="row">
+          <div class="price">8 500 ₽</div>
+          <div class="meta"><span class="badge badge--last"><span class="dot"></span>Последняя пара</span></div>
+        </div>
+        <div class="pname">Converse Chuck Taylor All Star</div>
+      </div>
+
+      <!-- Шаблон 6: Новинка -->
+      <div class="product product--new">
+        <div class="product-badge">Новинка</div>
+        <div class="product-media"><img src="image/nb302.png" alt="Yeezy"></div>
+        <div class="row">
+          <div class="price">45 000 ₽</div>
+          <div class="meta"><span class="badge badge--eta"><span class="dot"></span>7 дней</span></div>
+        </div>
+        <div class="pname">Yeezy Boost 350 V2</div>
+      </div>
+    </div>
+
+  </main>
+
+  <a class="fab" href="#">?</a>
+
+  <script>
+    // reveal on load/scroll
+    window.addEventListener('load', () => {
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target);} });
+      },{threshold:0.15});
+      document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    });
+  </script>
+</body>
+</html>
